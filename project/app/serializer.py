@@ -1,6 +1,8 @@
-from django.db import models
+from rest_framework import serializers
+from . models import *
 
-# Create your models here.
-class React(models.Model):
-  employee = models.CharField(max_length=30)
-  department = models.CharField(max_length=200)
+
+class ReactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = React
+        fields = ['employee', 'department']
